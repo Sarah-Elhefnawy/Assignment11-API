@@ -1,0 +1,120 @@
+/* Start of Navbar */
+.navbar {
+    background-color: #1E202B;
+    --bs-navbar-padding-x: 0;
+    --bs-navbar-padding-y: 3.125rem;
+    --bs-navbar-color: #fff;
+    --bs-navbar-hover-color: #fff;
+    --bs-navbar-active-color: #11B7DE;
+    --bs-navbar-brand-padding-y: 1.25rem;
+    --bs-navbar-brand-font-size: 0.875rem;
+    --bs-navbar-toggler-padding-y: 1.5rem;
+    --bs-navbar-toggler-padding-x: 1.3rem;
+    --bs-navbar-toggler-icon-bg: ;
+    --bs-navbar-toggler-border-color: transparent;
+    --bs-navbar-toggler-border-radius: 50%;
+    --bs-navbar-toggler-focus-width: 0;
+    --bs-navbar-toggler-transition: all 0.5s ease;
+    --bs-border-width: 0.15rem;
+}
+
+.navbar img {
+    width: 60px;
+    height: fit-content;
+}
+
+.navbar h1 {
+    font-family: Roboto, 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin-bottom: 0px;
+    font-weight: 700;
+}
+
+.navbar small {
+    color: #bfc1c8;
+    font-family: Roboto, 'Open Sans', sans-serif;
+    font-size: 10px;
+    line-height: 15px;
+    font-weight: 300;
+}
+
+.navbar .navbar-toggler::after {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    top: 40%;
+    left: 50;
+    transition: background-color 0.5s ease;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+    -ms-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+}
+
+.navbar .navbar-toggler span {
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50;
+    transition: background-color 0.5s ease;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+    -ms-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+}
+
+.navbar .navbar-toggler::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    top: 60%;
+    left: 50;
+    transition: background-color 0.5s ease;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+    -ms-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+}
+
+.navbar .navbar-toggler:hover::before,
+.navbar .navbar-toggler:hover::after,
+.navbar .navbar-toggler:hover span {
+    background-color: #11B7DE;
+}
+
+.navbar .navbar-toggler:hover {
+    --bs-navbar-toggler-border-color: #11b7de;
+}
+
+.navbar .nav-link {
+    display: block;
+    --bs-nav-link-padding-y: 1rem;
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
+    background: #262936;
+    border: #343743 1px solid;
+    text-align: center;
+}
+
+/* End of Navbar */
