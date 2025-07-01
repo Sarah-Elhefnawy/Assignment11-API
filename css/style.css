@@ -1,3 +1,11 @@
+* {
+    font-family: Helvetica, 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: #1E202B;
+}
+
 /* Start of Navbar */
 .navbar {
     background-color: #1E202B;
@@ -23,19 +31,10 @@
     height: fit-content;
 }
 
-.navbar h1 {
-    font-family: Roboto, 'Open Sans', sans-serif;
-    font-size: 16px;
-    margin-bottom: 0px;
-    font-weight: 700;
-}
-
 .navbar small {
     color: #bfc1c8;
-    font-family: Roboto, 'Open Sans', sans-serif;
     font-size: 10px;
     line-height: 15px;
-    font-weight: 300;
 }
 
 .navbar .navbar-toggler::after {
@@ -62,15 +61,7 @@
     width: 20px;
     height: 2px;
     background-color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50;
     transition: background-color 0.5s ease;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
     -webkit-transition: background-color 0.5s ease;
     -moz-transition: background-color 0.5s ease;
     -ms-transition: background-color 0.5s ease;
@@ -108,13 +99,183 @@
 }
 
 .navbar .nav-link {
-    display: block;
-    --bs-nav-link-padding-y: 1rem;
-    font-size: var(--bs-nav-link-font-size);
-    font-weight: var(--bs-nav-link-font-weight);
+    --bs-nav-link-padding-x: 1.25rem;
+    --bs-nav-link-padding-y: 1.25rem;
+    font-size: 15px;
     background: #262936;
     border: #343743 1px solid;
-    text-align: center;
+    transition: color 0.5s ease, border 0.5s ease;
+    -webkit-transition: color 0.5s ease, border 0.5s ease;
+    -moz-transition: color 0.5s ease, border 0.5s ease;
+    -ms-transition: color 0.5s ease, border 0.5s ease;
+    -o-transition: color 0.5s ease, border 0.5s ease;
 }
 
+
 /* End of Navbar */
+
+/* Start of Header */
+.header {
+    background-image: url(./../images/imgi_7_banner.png);
+    background-size: cover;
+    min-height: 350px;
+}
+
+.form-control.input-custom {
+    padding: 20px 50px 20px 20px;
+    font-size: 14px;
+    --bs-body-color: #bfc1c8;
+    --bs-body-bg: #1E202B;
+    border-radius: 30px;
+}
+
+input.input-custom::placeholder {
+    color: #bfc1c8;
+    opacity: 1;
+}
+
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.input-group .btn-custom {
+    --bs-btn-padding-x: 40px;
+    --bs-btn-padding-y: 0;
+    --bs-btn-font-size: 14px;
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #009AD8;
+    --bs-btn-border-radius: 30px;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    height: 87%;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--bs-btn-bg);
+    --bs-btn-hover-border-color: transparent;
+    z-index: 999;
+}
+
+.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3),
+.input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-control,
+.input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-select,
+.input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+/* End of Header */
+
+/* Start of Weather Data */
+.weather-data .card.card-middle .card-body {
+    background-color: #262936;
+}
+
+.weather-data .card.card-middle .card-header {
+    background-color: #222530;
+}
+
+.weather-data .card-header {
+    color: #BFC1C8;
+    font-size: 14px;
+    line-height: 21px;
+    background-color: #2D303D;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
+
+.weather-data .col-12:first-child .card-header {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.weather-data .col-12:nth-child(3) .card-header {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.weather-data .col-12:nth-child(3) .card-body {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.weather-data .card-body {
+    background-color: #323544;
+    color: #BFC1C8;
+}
+
+.weather-data .card-body p {
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.weather-data .card-body h2 {
+    font-size: 90px;
+    line-height: 135px;
+}
+
+.weather-data .card-body h2 span {
+    font-size: 60px;
+    top: -0.8em;
+    position: relative;
+}
+
+.weather-data .card-body h3 span {
+    font-size: 16px;
+    top: -0.8em;
+    position: relative;
+}
+
+.weather-data .card-body h4 span {
+    font-size: 10px;
+    top: -0.8em;
+    position: relative;
+}
+
+.weather-data .card-body p:not(:first-child) {
+    color: #009AD8;
+}
+
+.weather-data .weather {
+    margin-top: -150px;
+}
+
+/* End of Weather Data */
+
+/* Start of Footer */
+.footer {
+    background-color: #262936;
+}
+
+.footer ul li div {
+    width: 40px;
+    height: 40px;
+    background-color: #1E202B;
+    color: #009AD8;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.footer ul li div:hover {
+    background-color: #009AD8;
+    color: #fff;
+}
+
+.footer p {
+    color: #BFC1C8;
+    font-size: 14px;
+    line-height: 21px;
+}
+/* End of Footer */
