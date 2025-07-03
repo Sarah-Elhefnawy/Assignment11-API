@@ -54,6 +54,25 @@
 
 /* md */
 @media (min-width: 768px) {
+    .weather-data #col1 .card-header {
+        border-top-right-radius: 0;
+        border-top-left-radius: 10px;
+    }
+
+    .weather-data #col1 .card-body {
+        border-bottom-left-radius: 10px;
+    }
+
+    .weather-data #col3 .card-header {
+        border-top-left-radius: 0;
+        border-top-right-radius: 10px;
+    }
+
+    .weather-data #col3 .card-body {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 10px;
+    }
+
     /* .md-100 {
         width: 100%;
     }
@@ -130,25 +149,6 @@
         -ms-border-radius: 20px;
         -o-border-radius: 20px;
         color: #11B7DE;
-    }
-
-    .weather-data #col1 .card-header {
-        border-top-right-radius: 0;
-        border-top-left-radius: 10px;
-    }
-
-    .weather-data #col1 .card-body {
-        border-bottom-left-radius: 10px;
-    }
-
-    .weather-data #col3 .card-header {
-        border-top-left-radius: 0;
-        border-top-right-radius: 10px;
-    }
-
-    .weather-data #col3 .card-body {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 10px;
     }
 
     /* .lg-100 {
