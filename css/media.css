@@ -132,21 +132,21 @@
         color: #11B7DE;
     }
 
-    .weather-data .card:first-child .card-header {
+    .weather-data #col1 .card-header {
         border-top-right-radius: 0;
         border-top-left-radius: 10px;
     }
 
-    .weather-data .card:first-child .card-body {
+    .weather-data #col1 .card-body {
         border-bottom-left-radius: 10px;
     }
 
-    .weather-data .col-12:nth-child(3) .card-header {
+    .weather-data #col3 .card-header {
         border-top-left-radius: 0;
         border-top-right-radius: 10px;
     }
 
-    .weather-data .col-12:nth-child(3) .card-body {
+    .weather-data #col3 .card-body {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 10px;
     }

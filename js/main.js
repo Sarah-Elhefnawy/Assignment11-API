@@ -1,13 +1,11 @@
 // API Key     872302ff72b940a6b76130827240511
 
-// const rowWeather = document.querySelector("#weather");
-
 let weatherDateCurrent = "";
-async function currentWeather() {
+async function getWeather(country) {
     // Request & Response
-    const weather = await fetch("http://api.weatherapi.com/v1/forecast.json?key=872302ff72b940a6b76130827240511&q=Cairo&days=3&aqi=no&alerts=no");
+    const weather = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=872302ff72b940a6b76130827240511&q=${country}&days=3&aqi=no&alerts=no`);
     const log = await weather.json();
-    console.log(log);
+    // console.log(log);
 
     // Current Day
     weatherDateCurrent = log.current.last_updated;
@@ -18,34 +16,40 @@ async function currentWeather() {
 
     // Tomorrow
     const D1 = log.forecast.forecastday[1].date;
-    const T1 = log.forecast.forecastday[1].day.maxtemp_c;
+    const T1Max = log.forecast.forecastday[1].day.maxtemp_c;
+    const T1Min = log.forecast.forecastday[1].day.mintemp_c;
     const I1 = `https:${log.forecast.forecastday[1].day.condition.icon}`;
     const C1 = log.forecast.forecastday[1].day.condition.text;
 
     // Day After Tomorrow
     const D2 = log.forecast.forecastday[2].date;
-    const T2 = log.forecast.forecastday[2].day.maxtemp_c;
+    const T2Max = log.forecast.forecastday[2].day.maxtemp_c;
+    const T2Min = log.forecast.forecastday[2].day.mintemp_c;
     const I2 = `https:${log.forecast.forecastday[2].day.condition.icon}`;
     const C2 = log.forecast.forecastday[2].day.condition.text;
 
-    display(weatherDateCurrent, weatherLocation, weatherTemp, weatherIcon, weatherCondition);
-    display(D1, weatherLocation, T1, I1, C1);
-    display(D2, weatherLocation, T2, I2, C2);
+    display(weatherDateCurrent, weatherLocation, weatherTemp, T1Max, weatherIcon, weatherCondition, 1);
+    display(D1, weatherLocation, T1Max, T1Min, I1, C1, 2);
+    display(D2, weatherLocation, T2Max, T2Min, I2, C2, 3);
 }
-currentWeather()
+getWeather("alex");
 
-function display(date, location, temp, icon, condition) {
+// Display Cards
+function display(date, location, temp, temp2, icon, condition, index) {
     let container = `
-        <div class="col-12 col-lg-4">
             <div class="card rounded-4 border-0">
-                <div class="card-header d-flex flex-row justify-content-between">
+                <div class="card-header card-date">
                     ${returnWeekDay(date)}
-                    <div>${returnDayDate(date)}</div>
+                    <div class="date">${returnDayDate(date)}</div>
                 </div>
                 <div class="card-body">
                     <p>${location}</p>
-                    <h2 class="fw-bold text-white d-inline">${temp}<span>o</span>C</h2>
-                    <img src="${icon}" alt="weather icon">
+                    <img src="${icon}" class="unhide-img" alt="weather icon">
+                    <div class="d-flex flex-row align-items-center">
+                        <h2 class="card-img fw-bold text-white mb-0">${temp}<span>o</span>C</h2>
+                        <img src="${icon}" class="hide-img" alt="weather icon">
+                    </div>
+                    <h3 class="card-h2 fs-4 lh-lg fw-bold mb-0">${temp2}<span>o</span>C</h3>
                     <p>${condition}</p>
                     <ul class="list-unstyled">
                         <li class="pe-3">
@@ -62,11 +66,11 @@ function display(date, location, temp, icon, condition) {
                         </li>
                     </ul>
                 </div>
-            </div>
-        </div>`
-    document.querySelector("#weather").innerHTML += container;
+            </div>`
+    document.querySelector(`#col${index}`).innerHTML = container;
 }
 
+// Convert from Date to Week Day
 function returnWeekDay(weatherDateCurrent) {
     const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const date = new Date(weatherDateCurrent);
@@ -80,6 +84,7 @@ function returnWeekDay(weatherDateCurrent) {
     // console.log(weekday[d.getDay()]);
 }
 
+// From DD-MM-YY to DD-MM
 function returnDayDate(weatherDateCurrent) {
     const months = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"];
@@ -92,3 +97,15 @@ function returnDayDate(weatherDateCurrent) {
     // console.log(formattedDate);
     return formattedDate;
 }
+
+// Search Input Event
+function searchCountry() {
+    const country = this.value.trim();
+    if (country === "") {
+        getWeather("Alex");
+    } else {
+        getWeather(country);
+    }
+}
+document.querySelector("#search").addEventListener('input', searchCountry);
+document.querySelector("#searchBtn").addEventListener('click', searchCountry);
