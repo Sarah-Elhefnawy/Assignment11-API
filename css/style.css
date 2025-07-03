@@ -176,7 +176,7 @@ input.input-custom::placeholder {
     background-color: #262936;
 }
 
-.weather-data .card.card-middle .card-header {
+.weather-data .col-12::nth-child(2) .card .card-header {
     background-color: #222530;
 }
 
@@ -210,6 +210,7 @@ input.input-custom::placeholder {
 .weather-data .card-body {
     background-color: #323544;
     color: #BFC1C8;
+    height: 280px;
 }
 
 .weather-data .card-body p {
@@ -220,6 +221,7 @@ input.input-custom::placeholder {
 .weather-data .card-body h2 {
     font-size: 90px;
     line-height: 135px;
+    /* min-width: 280px; */
 }
 
 .weather-data .card-body h2 span {
@@ -246,6 +248,24 @@ input.input-custom::placeholder {
 
 .weather-data .weather {
     margin-top: -150px;
+}
+
+.weather-data .col-12:first-child ul {
+    display: flex;
+}
+
+.weather-data .col-12:nth-child(2) ul,
+.weather-data .col-12:nth-child(3) ul {
+    display: none;
+}
+
+.weather-data .col-12:first-child .card-body {
+    text-align: start;
+}
+
+.weather-data .col-12:nth-child(2) .card-body,
+.weather-data .col-12:nth-child(3) .card-body {
+    text-align: center;
 }
 
 /* End of Weather Data */
