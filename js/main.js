@@ -3,7 +3,7 @@
 let weatherDateCurrent = "";
 async function getWeather(country) {
     // Request & Response
-    const weather = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=872302ff72b940a6b76130827240511&q=${country}&days=3&aqi=no&alerts=no`);
+    const weather = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=872302ff72b940a6b76130827240511&q=${country}&days=3&aqi=no&alerts=no`);
     const log = await weather.json();
     // console.log(log);
 
