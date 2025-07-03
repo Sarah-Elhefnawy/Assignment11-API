@@ -1,4 +1,5 @@
 // API Key     872302ff72b940a6b76130827240511
+searchInput = document.querySelector("#search");
 
 let weatherDateCurrent = "";
 async function getWeather(country) {
@@ -32,7 +33,7 @@ async function getWeather(country) {
     display(D1, weatherLocation, T1Max, T1Min, I1, C1, 2);
     display(D2, weatherLocation, T2Max, T2Min, I2, C2, 3);
 }
-getWeather("alex");
+// getWeather("alex");
 
 // Display Cards
 function display(date, location, temp, temp2, icon, condition, index) {
@@ -99,13 +100,53 @@ function returnDayDate(weatherDateCurrent) {
 }
 
 // Search Input Event
-function searchCountry() {
-    const country = this.value.trim();
-    if (country === "") {
+function searchCountry(country) {
+    if (!country) {
         getWeather("Alex");
     } else {
         getWeather(country);
     }
 }
-document.querySelector("#search").addEventListener('input', searchCountry);
-document.querySelector("#searchBtn").addEventListener('click', searchCountry);
+
+searchInput.addEventListener('input', (e) => {
+    const country = e.target.value;
+    searchCountry(country);
+});
+
+document.querySelector("#searchBtn").addEventListener('click', () => {
+    const country = searchInput.value;
+    searchCountry(country);
+});
+
+searchCountry("Alex");
+
+// Function to get city name from lat/lon
+function getCityFromCoords(lat, lon) {
+    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+        .then(res => res.json())
+        .then(data => {
+            const city = data.address.city || "";
+            if (city) {
+                searchInput.value = city;
+                getWeather(city);
+            } else {
+                getWeather("Alex");
+            }
+        })
+}
+
+// Request geolocation on page load
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+        (pos) => {
+            getCityFromCoords(pos.coords.latitude, pos.coords.longitude);
+        },
+        () => {
+            // If user denies or error, fallback
+            getWeather("Alex");
+        }
+    );
+} else {
+    // Geolocation not supported
+    getWeather("Alex");
+}
