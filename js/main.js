@@ -109,8 +109,8 @@ function searchCountry(country) {
 }
 
 searchInput.addEventListener('input', (e) => {
-    const country = e.target.value;
-    searchCountry(country);
+    if (e.target.value < 3) reture 
+    searchCountry(e.target.value);
 });
 
 document.querySelector("#searchBtn").addEventListener('click', () => {
@@ -118,28 +118,13 @@ document.querySelector("#searchBtn").addEventListener('click', () => {
     searchCountry(country);
 });
 
-searchCountry("Alex");
-
-// Function to get city name from lat/lon
-function getCityFromCoords(lat, lon) {
-    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
-        .then(res => res.json())
-        .then(data => {
-            const city = data.address.city || "";
-            if (city) {
-                searchInput.value = city;
-                getWeather(city);
-            } else {
-                getWeather("Alex");
-            }
-        })
-}
-
 // Request geolocation on page load
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
         (pos) => {
-            getCityFromCoords(pos.coords.latitude, pos.coords.longitude);
+            const lat = pos.coords.latitude;
+            const long = pos.coords.longitude;
+            getWeather(`${lat},${long}`)
         },
         () => {
             // If user denies or error, fallback
